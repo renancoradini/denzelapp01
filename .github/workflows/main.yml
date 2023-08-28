@@ -19,7 +19,7 @@ jobs:
       - name: Terraform
         uses: dflook/terraform-apply@v1.29.1
         with:
-          path: terraformar/
+          path: ./terraformar
           auto_approve: true
 
       - name: Autentication of docker hub
