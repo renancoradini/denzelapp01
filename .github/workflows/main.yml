@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Configure AWS Credentials"
+      - name: configure aws
       - uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-region: us-west-2
