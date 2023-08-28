@@ -1,0 +1,36 @@
+https://linuxhint.com/create-aws-vpc-using-terraform/
+
+repositorio do exemplo terraform:
+https://github.com/FolderIT/ECS-EC2-Terraform/tree/master
+
+sudo su
+sudo yum upgrade -y
+sudo yum install -y yum-utils 
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo yum install -y terraform git
+git clone https://github.com/renancoradini/terraform1.git
+
+
+aws configure --profile renandeploy
+
+acessos provisorios:
+AKIAWLHLQVRVCCFVTFUK
+l76fMGhl/KZ14fWHO1Kco44m85bM3qobPSNcd2cl
+us-west-2
+
+## Verificar o data-user da instancia
+sudo cat /var/lib/cloud/instance/user-data.txt
+
+ami-ec2-ec2 amazon
+ami-02a4b44230bc8650a
+
+
+## GIT 
+teste
+
+### docker
+
+sudo su
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 734240712282.dkr.ecr.us-west-2.amazonaws.com
+docker tag renancoradini/denzelapp01:latest 734240712282.dkr.ecr.us-west-2.amazonaws.com/ecrrepo2:latest
+docker push 734240712282.dkr.ecr.us-west-2.amazonaws.com/ecrrepo2:latest
