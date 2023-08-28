@@ -26,3 +26,14 @@ jobs:
         tags: |
           renancoradini/denzelapp01:${{github.run_number}}
           renancoradini/denzelapp01:latest
+
+  CD: 
+    runs-on: ubuntu-latest
+    needs: [CI]
+
+    steps:
+    - users:
+        with:
+        
+      
+      
