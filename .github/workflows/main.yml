@@ -14,8 +14,8 @@ jobs:
     - name: Autentication of docker hub
       uses: docker/login-action@v2.2.0
       with:
-        username: ${{secrets.DOCKERHUB_USER}}
-        password: ${{secrets.DOCKERHUB_PWD}}
+        username: ${{ secrets.DOCKERHUB_USER }}
+        password: ${{ secrets.DOCKERHUB_PWD }}
     
     - name: Construction of Docker's image
       uses: docker/build-push-action@v4.1.1
@@ -25,4 +25,4 @@ jobs:
         push: true
         tags: |
           renancoradini/denzelapp01:v1
-          renancoradini/denzelapp01:latest         
+          renancoradini/denzelapp01:latest
