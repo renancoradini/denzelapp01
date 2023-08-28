@@ -10,20 +10,18 @@ jobs:
 
     steps:
       - name: configure aws
-      - uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-region: us-west-2
           aws-access-key-id: AKIAY4P52ZUQSR6ITTNX
           aws-secret-access-key: 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
        
       - name: Terraform
-      - uses: dflook/terraform-apply@v1.29.1
+        uses: dflook/terraform-apply@v1.29.1
         with:
           path: terraformar/
           auto_approve: true
 
-      - uses: actions/checkout@v3.6.0
-      
       - name: Autentication of docker hub
         uses: docker/login-action@v2.2.0
         with:
