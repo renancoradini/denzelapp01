@@ -10,11 +10,11 @@ jobs:
 
     steps:
     - name: "Configure AWS Credentials" Action for GitHub Actions
-      uses: aws-actions/configure-aws-credentials@v3
+    - uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-region: us-west-2
-          aws-access-key-id: # optional
-          aws-secret-access-key: # optional
+          aws-access-key-id: AKIAY4P52ZUQSR6ITTNX
+          aws-secret-access-key: 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
        
     - name: Terraform
     - uses: dflook/terraform-apply@v1.29.1
