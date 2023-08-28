@@ -1,0 +1,21 @@
+name: CI-CD
+
+on: 
+  push:
+    branches: ["main"]
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3.6.0
+    - name: Construction of Docker's image
+      uses: docker/build-push-action@v4.1.1
+      with:
+        context: .
+        file: Dockerfile
+        push: true
+        tags: |
+          renancoradini/denzelapp01:v1
+          renancoradini/denzelapp01:latest         
