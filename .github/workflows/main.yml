@@ -36,4 +36,19 @@ jobs:
         repo: ecrrepo2
         tags: latest
         dockerfile: Dockerfile
-        
+
+    - name: GitHub Docker Action
+  # You may pin to the exact commit or the version.
+  # uses: matootie/github-docker@c1290d4f67c6fc0cdf84b2924d6dccf658129b3e
+      uses: matootie/github-docker@v3.1.0
+      with:
+        # GitHub Repository Token to log in using.
+        accessToken: ${{ secrets.GHTOKEN }}
+        # The desired name for the image. Defaults to current repository name.
+        imageName: renancoradini/denzelapp01
+        tag: latest
+        # Any additional build arguments to use when building the image, separated by newline.
+        buildArgs: /
+        context: .
+        # The repository to push the image to. Defaults to the current repository. Must be specified in format user/repo.
+        repository: renancoradini/denzelapp01          
