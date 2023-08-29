@@ -18,7 +18,7 @@ jobs:
       - name: Construction of Docker's image
         uses: docker/build-push-action@v4.1.1
         with:
-          context: .
+          context: ./
           file: Dockerfile
           push: true
           tags: |
