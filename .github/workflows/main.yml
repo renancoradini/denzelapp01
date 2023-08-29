@@ -48,7 +48,7 @@ jobs:
         imageName: renancoradini/denzelapp01
         tag: latest
         # Any additional build arguments to use when building the image, separated by newline.
-        buildArgs: /
+        #buildArgs: 
         context: .
         # The repository to push the image to. Defaults to the current repository. Must be specified in format user/repo.
         repository: renancoradini/denzelapp01          
