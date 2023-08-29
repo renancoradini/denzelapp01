@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 name: "Terraform Plan"
-=======
-name: 'Terraform Plan'
->>>>>>> 444ae5e55e001edebbbe8c97904ce45d71372af2
 on:
   pull_request:
 env:
@@ -10,11 +6,7 @@ env:
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "learn-terraform-github-actions"
   CONFIG_DIRECTORY: "./terraformar"
-<<<<<<< HEAD
-
-=======
 ## ...
->>>>>>> 444ae5e55e001edebbbe8c97904ce45d71372af2
 jobs:
   terraform:
     if: github.repository != 'renancoradini/denzelapp01'
@@ -23,7 +15,6 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-<<<<<<< HEAD
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -54,7 +45,6 @@ jobs:
         uses: actions/github-script@v6
         id: plan-comment
         with:
-=======
          ## ...
     steps:
     - name: Checkout
@@ -87,7 +77,6 @@ jobs:
       uses: actions/github-script@v6
       id: plan-comment
       with:
->>>>>>> 444ae5e55e001edebbbe8c97904ce45d71372af2
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             // 1. Retrieve existing bot comments for the PR
