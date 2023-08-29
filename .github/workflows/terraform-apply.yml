@@ -3,7 +3,7 @@ name: "Terraform Apply"
 on:
   push:
     branches:
-      - main
+      - teste
 
 env:
   TF_CLOUD_ORGANIZATION: "renancoradini"
