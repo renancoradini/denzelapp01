@@ -45,7 +45,7 @@ jobs:
         uses: actions/github-script@v6
         id: plan-comment
         with:
-         ## ...
+         
     steps:
     - name: Checkout
       uses: actions/checkout@v3
