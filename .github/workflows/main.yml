@@ -27,15 +27,15 @@ jobs:
           renancoradini/denzelapp01:${{github.run_number}}
           renancoradini/denzelapp01:latest
 
-    - name: Docker ECR
-      uses: appleboy/docker-ecr-action@v0.0.3
-      with:
-        access_key: ${{ secrets.AWS_ACCESS }}
-        secret_key: ${{ secrets.AWS_SECRET }}
-        region: us-west-2
-        repo: ecrrepo2
-        tags: latest
-        dockerfile: Dockerfile
+#    - name: Docker ECR
+#      uses: appleboy/docker-ecr-action@v0.0.3
+#      with:
+#        access_key: ${{ secrets.AWS_ACCESS }}
+#        secret_key: ${{ secrets.AWS_SECRET }}
+#        region: us-west-2
+#        repo: ecrrepo2
+#        tags: latest
+#        dockerfile: Dockerfile
 
     - name: GitHub Docker Action
   # You may pin to the exact commit or the version.
