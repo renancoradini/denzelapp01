@@ -1,8 +1,7 @@
 name: CI-CD
-
 on: 
   push:
-    branches: ["main"]
+    branches: ["main22"]
 
 jobs:
   CI:
@@ -65,4 +64,4 @@ jobs:
           region: us-west-2
           repo: ecrrepo2
           tags: latest
-          dockerfile: Dockerfile       
+          dockerfile: Dockerfile
