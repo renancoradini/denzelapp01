@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Docker ECR
-    uses: appleboy/docker-ecr-action@v0.0.3
+      uses: appleboy/docker-ecr-action@v0.0.3
       with:
         access_key: ${{ secrets.AWS_ACCESS }}
         secret_key: ${{ secrets.AWS_SECRET }}
