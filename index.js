@@ -6,7 +6,7 @@ app.use(express.json());
 
 
 //Invoke the Sequelize object and pass in the database connection string to its constructor by doing the following:
-const sequelize = new Sequelize('postgres://user12345678:pass12345678@name1db.ceoaj7zkmjj1.us-west-2.rds.amazonaws.com/DBNAMEPOSTGRES:5432')
+const sequelize = new Sequelize('postgres://user12345678:pass12345678@name1db.ceoaj7zkmjj1.us-west-2.rds.amazonaws.com:5432/DBNAMEPOSTGRES')
 
 
 //To test if the connection with the database is successful we can write the following code:
