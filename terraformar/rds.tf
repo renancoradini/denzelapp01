@@ -23,6 +23,6 @@ resource "aws_db_instance" "name1db" {
   password             = var.passwordDB
 
   vpc_security_group_ids = [aws_security_group.postgres.id]
-  publicly_accessible    = false # Only for testing!!!
+  publicly_accessible    = true # Only for testing!!!
   skip_final_snapshot    = true
 }
