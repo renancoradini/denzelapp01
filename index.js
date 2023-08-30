@@ -4,9 +4,15 @@ const app = express()
 const port = 8080
 app.use(express.json());
 
+const sequelize = new Sequelize('DBNAMEPOSTGRES', 'user12345678', 'pass12345678', {
+    host: 'database-2.ceoaj7zkmjj1.us-west-2.rds.amazonaws.com',
+    dialect: 'postgres',
+    ssl: true
+  });
+
 
 //Invoke the Sequelize object and pass in the database connection string to its constructor by doing the following:
-const sequelize = new Sequelize('postgres://user12345678:pass12345678@database-2.ceoaj7zkmjj1.us-west-2.rds.amazonaws.com:5432/DBNAMEPOSTGRES')
+//const sequelize = new Sequelize('postgres://user12345678:pass12345678@database-2.ceoaj7zkmjj1.us-west-2.rds.amazonaws.com:5432/DBNAMEPOSTGRES')
 
 
 //To test if the connection with the database is successful we can write the following code:
