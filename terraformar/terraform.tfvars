@@ -1,5 +1,5 @@
 usernameDB = "user12345678"
-passwordDB = "pass12345678"
+passwordDB = "user12345678"
 namedb =  "DBNAMEPOSTGRES"
 
 aws_account     = "046731495937"
