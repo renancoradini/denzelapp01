@@ -6,5 +6,3 @@ resource "aws_ecr_repository" "ecrdenzel" {
     scan_on_push = true
   }
 }
-
-

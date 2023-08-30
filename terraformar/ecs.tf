@@ -24,7 +24,7 @@ data "template_file" "task_definition_json" {
 ##### AWS ECS-SERVICE #####
 resource "aws_ecs_service" "service-webservice" {
   cluster         = aws_ecs_cluster.cluster.id                  # ECS Cluster ID
-  desired_count   = 1                                           # Number of tasks running
+  desired_count   = 2                                           # Number of tasks running
   launch_type     = "EC2"                                       # Cluster type [ECS OR FARGATE]
   name            = "denzelrr-webservice-service-webservice"    # Name of service
   task_definition = aws_ecs_task_definition.task_definition.arn # Attach the task to service

@@ -5,7 +5,7 @@ resource "aws_instance" "ec2_ssh" {
   instance_type = var.instance_type
 
   subnet_id                   = module.vpc.public_subnets[0]
-  vpc_security_group_ids             = [aws_security_group.public.id]
+  vpc_security_group_ids      = [aws_security_group.public.id]
   associate_public_ip_address = "true"
 
 
@@ -20,9 +20,9 @@ resource "aws_instance" "ec2_ssh" {
 ##Auto Scale Group
 
 resource "aws_autoscaling_group" "tf2" {
-  desired_capacity = 1 #set to what you like; must be same number as min
-  max_size         = 1 #set to what you like
-  min_size         = 1 #set to what you like; must be same as desired capacity
+  desired_capacity = 2 #set to what you like; must be same number as min
+  max_size         = 4 #set to what you like
+  min_size         = 2 #set to what you like; must be same as desired capacity
   vpc_zone_identifier = [
   module.vpc.public_subnets[0], module.vpc.public_subnets[1], module.vpc.public_subnets[2]] #two subnets
 
