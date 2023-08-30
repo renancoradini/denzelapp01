@@ -51,4 +51,18 @@ jobs:
         #buildArgs: 
         context: .
         # The repository to push the image to. Defaults to the current repository. Must be specified in format user/repo.
-        repository: renancoradini/denzelapp01          
+        repository: renancoradini/denzelapp01
+
+  CD:
+  needs: [CI]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker ECR
+        uses: appleboy/docker-ecr-action@v0.0.3
+        with:
+          access_key: ${{ secrets.AWS_ACCESS }}
+          secret_key: ${{ secrets.AWS_SECRET }}
+          region: us-west-2
+          repo: ecrrepo2
+          tags: latest
+          dockerfile: Dockerfile       
