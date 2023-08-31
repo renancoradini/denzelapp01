@@ -5,7 +5,7 @@ const port = 8080
 app.use(express.json());
 
 const sequelize = new Sequelize('DBNAMEPOSTGRES', 'user12345678', 'user12345678', {
-    host: 'name1db.czsz6bpbi50f.us-west-2.rds.amazonaws.com',
+    host: 'name1db.c8hznaug0acu.us-west-2.rds.amazonaws.com',
     dialect: 'postgres'
   //  ssl: true
   });
