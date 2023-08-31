@@ -3,11 +3,23 @@ name: aws-service-ecs-update
 on:
   workflow_call:
 
+env:
+  AWS_REGION: us-west-2                  # set this to your preferred AWS region, e.g. us-west-1
+ # ECR_REPOSITORY: demo-deploy          # set this to your Amazon ECR repository name
+  ECS_SERVICE: denzelrr-webservice-service-webservice               # set this to your Amazon ECS service name
+  ECS_CLUSTER: ecs-denzelrr-cluster                 # set this to your Amazon ECS cluster name
+  ECS_TASK_DEFINITION: ./terraformar/task-definition.json      # set this to the path to your Amazon ECS task definition                                           # file, e.g. .aws/task-definition.json
+  CONTAINER_NAME: denzelrr-webservice           # set this to the name of the container in the
+                                                # containerDefinitions section of your task definition
+
 jobs:
   docker-build-push:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: "Configure AWS Credentials"
   # You may pin to the exact commit or the version.
   # uses: aws-actions/configure-aws-credentials@04b98b3f9e85f563fb061be8751a0352327246b0
@@ -20,16 +32,20 @@ jobs:
             # AWS Secret Access Key. Required if aws-access-key-id is provided.
             aws-secret-access-key: ${{ secrets.AWS_SECRET }}
             # AWS Session Token.
+      
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: ${{ env.ECS_TASK_DEFINITION }}
+          container-name: ${{ env.CONTAINER_NAME }}
+          image: docker.io/renancoradini/denzelapp01:latest
+      
             
-      - name: Amazon ECS "Deploy Task Definition" Action for GitHub Actions
-      # You may pin to the exact commit or the version.
-      # uses: aws-actions/amazon-ecs-deploy-task-definition@df9643053eda01f169e64a0e60233aacca83799a
+      - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          # The path to the ECS task definition file to register
-          task-definition: .github/workflows/task_definition.json
-          # The name of the ECS service to deploy to. The action will only register the task definition if no service is given.
-          service: denzelrr-webservice-service-webservice
-          # The name of the ECS service's cluster.  Will default to the 'default' cluster
-          cluster: ecs-denzelrr-cluster
-          force-new-deployment: true
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: ${{ env.ECS_SERVICE }}
+          cluster: ${{ env.ECS_CLUSTER }}
+          wait-for-service-stability: true
