@@ -40,6 +40,8 @@ jobs:
           task-definition: ${{ env.ECS_TASK_DEFINITION }}
           container-name: ${{ env.CONTAINER_NAME }}
           image: docker.io/renancoradini/denzelapp01:latest
+          aws-access-key-id: ${{ secrets.AWS_ACCESS }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET }}
       
             
       - name: Deploy Amazon ECS task definition
