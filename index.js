@@ -42,7 +42,7 @@ type: Sequelize.STRING
 
 // Note: using `force: true` will drop the table if it already exists
 User.sync({ force: true }) // Now the `users` table in the database corresponds to the model definition
-app.get('/', (req, res) => res.json({ message: 'Hello World denzel update6666666' }))
+app.get('/', (req, res) => res.json({ message: 'Hello World denzel update 77777777777' }))
 
 //Add a POST endpoint that contains the user in the request body:
 app.post('/user', async (req, res) => {
