@@ -27,7 +27,7 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           # The path to the ECS task definition file to register
-          task-definition: env.task_definition
+          task-definition: ${{ vars.task_definition }}
           # The name of the ECS service to deploy to. The action will only register the task definition if no service is given.
           service: denzelrr-webservice-service-webservice
           # The name of the ECS service's cluster.  Will default to the 'default' cluster
