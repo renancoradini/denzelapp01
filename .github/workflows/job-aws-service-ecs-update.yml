@@ -5,7 +5,7 @@ on:
 
 env:
   AWS_REGION: us-west-2                  # set this to your preferred AWS region, e.g. us-west-1
- # ECR_REPOSITORY: demo-deploy          # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: ecrrepo2         # set this to your Amazon ECR repository name
   ECS_SERVICE: denzelrr-webservice-service-webservice               # set this to your Amazon ECS service name
   ECS_CLUSTER: ecs-denzelrr-cluster                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: .github/workflows/task_definition_gh.json      # set this to the path to your Amazon ECS task definition                                           # file, e.g. .aws/task-definition.json
@@ -32,22 +32,13 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Build, tag, and push image to Amazon ECR
-        id: build-image
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ecrrepo2
-          IMAGE_TAG: ${{ github.sha }}
-        run: |
-          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition.json
           container-name: ${{ env.CONTAINER_NAME }}
-          image: ${{ env.ECR_REGISTRY }}${{ env.ECR_REPOSITORY }}:latest
+          image: ${{ steps.login-ecr.outputs.registry }}${{ env.ECR_REPOSITORY }}:latest
           #image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
