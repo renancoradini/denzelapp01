@@ -15,8 +15,8 @@ resource "aws_db_instance" "name1db" {
   instance_class       = "db.t3.micro"
   identifier           = "name1db"
   engine               = "postgres"
-  engine_version       = "15.3"
-  parameter_group_name = "default.postgres15"
+  engine_version       = "14"
+  parameter_group_name = "default.postgres14"
   db_subnet_group_name = aws_db_subnet_group.default.name
   db_name              = var.namedb
   username             = var.usernameDB

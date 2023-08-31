@@ -12,9 +12,9 @@ terraform {
 
 provider "aws" {
   region = var.regionset
-  profile = "renandeploy"
-  #access_key = var.accessKey
-  #secret_key = var.secretKey
+  #profile = "renandeploy"
+  access_key = var.accessKey
+  secret_key = var.secretKey
 }
 
 #   provider "aws" {
