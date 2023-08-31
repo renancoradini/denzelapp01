@@ -12,7 +12,7 @@ jobs:
     uses: ./.github/workflows/job-docker-build-push.yml
 
   job2-call-job-aws-service-ecs-update:
-   # needs: [job1-call-docker-build-push]
+    needs: [job1-call-docker-build-push]
     permissions:
         id-token: write
         contents: read
