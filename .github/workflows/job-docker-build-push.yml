@@ -27,7 +27,7 @@ jobs:
           renancoradini/denzelapp01:latest
            
 
-    - name: Docker ECR
+    - name: Docker AWS ECR
       uses: appleboy/docker-ecr-action@v0.0.3
       with:
         access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
