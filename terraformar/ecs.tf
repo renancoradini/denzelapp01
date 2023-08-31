@@ -4,6 +4,7 @@ resource "aws_ecs_cluster" "cluster" {
 }
 
 ##### AWS ECS-TASK #####
+
 resource "aws_ecs_task_definition" "task_definition" {
   container_definitions    = data.template_file.task_definition_json.rendered # task defination json file location
   family                   = "denzelrr-task-defination-webservice"            # task name
