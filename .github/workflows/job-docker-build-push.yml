@@ -23,8 +23,8 @@ jobs:
         file: Dockerfile
         push: true
         tags: |
-          renancoradini/denzelapp01:${{github.run_number}}
-          renancoradini/denzelapp01:latest
+          renancoradini/denzelapp01:${{GITHUB_SHA}}
+          renancoradini/denzelapp01:${{GITHUB_SHA}}
            
 
     - name: Docker AWS ECR
@@ -34,5 +34,5 @@ jobs:
         secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         region: us-west-2
         repo: ecrrepo2
-        tags: latest
+        tags: ${{GITHUB_SHA}}
         dockerfile: Dockerfile
