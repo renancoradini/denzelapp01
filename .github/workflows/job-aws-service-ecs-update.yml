@@ -8,7 +8,7 @@ env:
  # ECR_REPOSITORY: demo-deploy          # set this to your Amazon ECR repository name
   ECS_SERVICE: denzelrr-webservice-service-webservice               # set this to your Amazon ECS service name
   ECS_CLUSTER: ecs-denzelrr-cluster                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: ./terraformar/task-definition.json      # set this to the path to your Amazon ECS task definition                                           # file, e.g. .aws/task-definition.json
+  ECS_TASK_DEFINITION: .github/workflows/job-aws-service-ecs-update.yml      # set this to the path to your Amazon ECS task definition                                           # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: denzelrr-webservice           # set this to the name of the container in the
                                                 # containerDefinitions section of your task definition
 
