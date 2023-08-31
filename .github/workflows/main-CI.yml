@@ -4,15 +4,15 @@ on:
     branches: ["main"]
 
 jobs:
-  job1-call-docker-build-push:
+  CI-job1-call-docker-build-push:
     permissions:
         contents: read
         pull-requests: write
     secrets: inherit
     uses: ./.github/workflows/job-docker-build-push.yml
 
-  job2-call-job-aws-service-ecs-update:
-    needs: [job1-call-docker-build-push]
+  CD-job2-call-job-aws-service-ecs-update:
+    needs: [CI-job1-call-docker-build-push]
     permissions:
         id-token: write
         contents: read
