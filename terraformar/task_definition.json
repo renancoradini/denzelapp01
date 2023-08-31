@@ -1,7 +1,7 @@
 [
     {
         "name": "denzelrr-webservice",
-        "image": "${CONTAINER_IMAGE}", 
+        "image": "docker.io/renancoradini/denzelapp01:latest", 
         "cpu": 256,
         "memory": 256,
         "logConfiguration": {
