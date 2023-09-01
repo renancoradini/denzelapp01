@@ -1,4 +1,4 @@
-name: CI
+name: CI-CD-V2
 on: 
   push:
     branches: ["main"]
