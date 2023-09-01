@@ -1,11 +1,11 @@
 const express = require('express')
 const Sequelize = require('sequelize')
 const app = express()
-const port = 8080
+const port = 80
 app.use(express.json());
 
 const sequelize = new Sequelize('DBNAMEPOSTGRES', 'user12345678', 'user12345678', {
-    host: 'name1db.c8hznaug0acu.us-west-2.rds.amazonaws.com',
+    host: 'name1db.cvl33czsbkjm.us-west-2.rds.amazonaws.com:5432',
     dialect: 'postgres'
   //  ssl: true
   });
@@ -42,7 +42,7 @@ type: Sequelize.STRING
 
 // Note: using `force: true` will drop the table if it already exists
 User.sync({ force: true }) // Now the `users` table in the database corresponds to the model definition
-app.get('/', (req, res) => res.json({ message: 'Hello World denzel update 3333333' }))
+app.get('/', (req, res) => res.json({ message: 'Denzel APP - Version 1988' }))
 
 //Add a POST endpoint that contains the user in the request body:
 app.post('/user', async (req, res) => {

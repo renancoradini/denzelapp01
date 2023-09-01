@@ -16,6 +16,6 @@ RUN npm i sequelize pg pg-hstore
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD [ "node", "index.js" ]
