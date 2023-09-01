@@ -31,7 +31,7 @@ resource "aws_ecs_service" "service-webservice" {
   task_definition = aws_ecs_task_definition.task_definition.arn # Attach the task to service
   load_balancer {
     container_name   = "denzelrr-webservice"
-    container_port   = "8080"
+    container_port   = "80"
     target_group_arn = aws_alb_target_group.alb_public_webservice_target_group.arn
   }
 }
