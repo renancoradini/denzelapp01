@@ -38,6 +38,7 @@ resource "aws_autoscaling_group" "tf2" {
 
   lifecycle {
     create_before_destroy = true
+    ignore_changes        = [desired_capacity, max_size, min_size]
   }
 }
 
